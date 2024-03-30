@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from bs4 import BeautifulSoup
 import requests
+import time
 
 
 # Title and intro
@@ -79,3 +80,9 @@ st.dataframe(top_gainers)
 
 st.header('Top Losers')
 st.dataframe(top_losers)
+
+# Refresh the app periodically
+refresh_rate = 60 * 60 * 24  # Refresh every hour (in seconds)
+while True:
+    time.sleep(refresh_rate)  
+    st.rerun()
